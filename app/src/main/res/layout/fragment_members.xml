@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.odys.nanaapp.MembersFragment">
+    tools:context="com.odys.nanaapp.MembersFragment"
+    android:background="@color/background">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

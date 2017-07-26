@@ -4,8 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,8 +69,10 @@ public class MembersFragment extends Fragment {
         MyAdapter adapter = new MyAdapter(new String[]{"Example 1", "Example 2", "Example 3", "Example 4", "Exapmle 5", "Example 6", "Example 7"});
         rv.setAdapter(adapter);
 
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        rv.setLayoutManager(llm);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+        rv.addItemDecoration(new SpaceItemDecoration(2,70,true));
+        rv.setItemAnimator(new DefaultItemAnimator());
+        rv.setLayoutManager(layoutManager);
 
         return rootView;
     }
