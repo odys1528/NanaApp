@@ -67,7 +67,32 @@ public class MembersFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_members, container, false);
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.recycler_view);
         rv.setHasFixedSize(true);
-        MyAdapter adapter = new MyAdapter(new String[]{"Example 1", "Example 2", "Example 3", "Example 4", "Exapmle 5", "Example 6", "Example 7"});
+        MyAdapter adapter = new MyAdapter(
+                new String[]{
+                    "Name 1",
+                    "Name 2",
+                    "Name 3",
+                    "Name 4",
+                    "Name 5",
+                    "Name 6",
+                    "Name 7"},
+                new String[]{
+                        "Description 1",
+                        "Description 2",
+                        "Description 3",
+                        "Description 4",
+                        "Description 5",
+                        "Description 6",
+                        "Description 7"},
+                new int[]{
+                        R.mipmap.ic_launcher,
+                        R.mipmap.ic_launcher,
+                        R.mipmap.ic_launcher,
+                        R.mipmap.ic_launcher,
+                        R.mipmap.ic_launcher,
+                        R.mipmap.ic_launcher,
+                        R.mipmap.ic_launcher
+                });
         rv.setAdapter(adapter);
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 2);

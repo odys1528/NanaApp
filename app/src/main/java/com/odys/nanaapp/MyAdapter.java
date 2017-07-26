@@ -1,6 +1,5 @@
 package com.odys.nanaapp;
 
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -9,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private static String[] dataSet;
+    private static String[] nameDataSet;
+    private static String[] descriptionDataSet;
+    private static int[] photoDataSet;
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public CardView cardView;
@@ -25,11 +26,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             super(v);
 
             cardView = (CardView) v.findViewById(R.id.card_view);
-            memberName = (TextView) v.findViewById(R.id.memberName);
-            memberDescription = (TextView) v.findViewById(R.id.memberDescription);
-            memberPhoto = (ImageView) v.findViewById(R.id.memberPhoto);
+            memberName = (TextView) v.findViewById(R.id.member_name);
+            memberDescription = (TextView) v.findViewById(R.id.member_description);
+            memberPhoto = (ImageView) v.findViewById(R.id.member_photo);
 
-            final boolean cardSide[] = new boolean[dataSet.length];
+            final boolean cardSide[] = new boolean[nameDataSet.length];
 
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -50,8 +51,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 
-    public MyAdapter(String[] myDataSet) {
-        dataSet = myDataSet;
+    public MyAdapter(String[] nameSet, String[] descriptionSet, int[] photoSet) {
+        nameDataSet = nameSet;
+        descriptionDataSet = descriptionSet;
+        photoDataSet = photoSet;
     }
 
     @Override
@@ -63,12 +66,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.memberName.setText(dataSet[position]);
+        holder.memberName.setText(nameDataSet[position]);
+        holder.memberDescription.setText(descriptionDataSet[position]);
+        holder.memberPhoto.setImageResource(photoDataSet[position]);
     }
 
     @Override
     public int getItemCount() {
-        return dataSet.length;
+        return nameDataSet.length;
     }
 
 
