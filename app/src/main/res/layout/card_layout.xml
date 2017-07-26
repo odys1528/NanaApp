@@ -19,7 +19,7 @@
             android:layout_alignEnd="@+id/memberPhoto"
             android:layout_alignStart="@+id/memberPhoto"
             android:layout_below="@+id/memberPhoto"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:text="nana"
             android:textStyle="bold" />
 
@@ -34,6 +34,16 @@
             android:minWidth="130dp"
             android:maxHeight="130dp"
             android:maxWidth="130dp"/>
+
+        <TextView
+            android:id="@+id/memberDescription"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignStart="@+id/memberPhoto"
+            android:layout_alignTop="@+id/memberPhoto"
+            android:gravity="bottom|left"
+            android:text="nanananannananaannananananana"
+            android:visibility="invisible" />
 
 
     </RelativeLayout>
